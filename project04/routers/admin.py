@@ -1,11 +1,11 @@
 from fastapi import Depends, HTTPException, Path, APIRouter
 from sqlalchemy.orm import Session
-from models import Todos
-from database import SessionLocal
+from ..models import Todos
+from ..database import SessionLocal
 from typing import Annotated
 from starlette import status
 from pydantic import BaseModel, Field
-from .auth import get_curret_user
+from .auth import get_current_user
 
 router = APIRouter(
     prefix='/admin',
@@ -22,7 +22,7 @@ def get_db():
         db.close()
 
 db_dependency = Annotated[Session, Depends(get_db)]
-user_dependency = Annotated[dict, Depends(get_curret_user)]
+user_dependency = Annotated[dict, Depends(get_current_user)]
 
 
 @router.get("/todo", status_code=status.HTTP_200_OK)
