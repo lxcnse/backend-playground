@@ -26,3 +26,9 @@ A collection of backend and API projects built with Python. The main goal of thi
 - User authentication & authorization
 - Password hashing
 - JWT
+
+## Project 4 includes:
+
+- Alembic migrations
+- Tests 
+
